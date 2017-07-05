@@ -68,7 +68,7 @@ export const discoveryOnStartupEpic = (some$, store) => {
     .map((action) => {
       if (action.type !== APP_START) return action // Only read on app startup
       if (!action.url) return action
-      const passedURL = getUrlParamValue('connectURL', action.url)
+      const passedURL = 'bolt://10.33.36.135:7688'
       if (!passedURL || !passedURL.length) return action
       const forceURL = decodeURIComponent(passedURL[0])
       action.forceURL = toBoltHost(forceURL) // Remove any protocol and prepend with bolt://
